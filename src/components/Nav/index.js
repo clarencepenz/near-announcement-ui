@@ -6,7 +6,7 @@ import React from "react";
 export default function Nav({ logout }) {
   return (
     <Flex bg='beige' w='full'>
-      <Link href='/' mr='auto'>
+      <Link href='/near-announcement-ui' textDecoration='none' mr='auto'>
         <Image src={LOGO} h='50px' w='50px' ml='20px'/> 
       </Link>
       <Box>
