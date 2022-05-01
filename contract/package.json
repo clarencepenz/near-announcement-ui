@@ -1,0 +1,24 @@
+{
+  "name": "starter--assemblyscript",
+  "version": "0.0.1",
+  "description": "Starter project for writing AssemblyScript contracts for NEAR Protocol",
+  "scripts": {
+    "dev": "watch -d -n 1 'clear && yarn test:unit'",
+    "asp": "asp --verbose --nologo",
+    "test:unit": "yarn asp -f unit.spec",
+    "build": "asb --target debug",
+    "build:release": "asb",
+    "test": "yarn build:release && yarn test:unit",
+    "clean": "rm -rf ./build && rm -rf ./neardev && rm -rf ./target",
+    "deploy": "./scripts/1.deploy.sh"
+  },
+  "keywords": [],
+  "author": "ogenieni.near",
+  "license": "ISC",
+  "devDependencies": {},
+  "dependencies": {
+    "assemblyscript": "^0.20.4",
+    "global": "^4.4.0",
+    "near-sdk-as": "^3.0.0"
+  }
+}
