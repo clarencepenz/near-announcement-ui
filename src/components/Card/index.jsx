@@ -69,7 +69,7 @@ export function Card({ item, account, likeFunc, dislikeFunc, deleteFunc }) {
         <Flex justify="flex-end" alignItems="baseline" py="2">
           <Flex color="gray.500" ml="2">
             <Flex cursor="pointer" mx="5px" variant="ghost" onClick={likeFunc}>
-              <Box mr="2px" _hover={{ color: "blue" }}>
+              <Box mr="2px" _hover={{ color: "blue" }} color={ item.like.includes(account) ? "blue" : 'gray'}>
                 {item.like.length} like
               </Box>
             </Flex>{" "}
@@ -79,7 +79,7 @@ export function Card({ item, account, likeFunc, dislikeFunc, deleteFunc }) {
               variant="ghost"
               onClick={dislikeFunc}
             >
-              <Box mr="2px" _hover={{ color: "blue" }}>
+              <Box mr="2px" _hover={{ color: "blue" }} color={ item.dislike.includes(account) ? "blue" : 'gray'}>
                 {item.dislike.length} dislike
               </Box>
             </Flex>
