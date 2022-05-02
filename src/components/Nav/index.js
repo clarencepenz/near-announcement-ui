@@ -17,10 +17,10 @@ import { accountBalance } from "../../config/near";
 
 export default function Nav({ logout }) {
   const [balance, setBalance] = useState("0");
-  const account = window.walletConnection.account();
+  const account = window.walletConnection.account().accountId;
 
   const getBalance = useCallback(async () => {
-    if (account.accountId) {
+    if (account) {
       setBalance(await accountBalance());
     }
   });
@@ -28,6 +28,8 @@ export default function Nav({ logout }) {
   useEffect(() => {
     getBalance();
   }, [getBalance]);
+
+  if(!account) return 'loading...';
 
   return (
     <Flex bg="beige" w="full">
@@ -49,16 +51,16 @@ export default function Nav({ logout }) {
               <Avatar
                 m={2}
                 size="xs"
-                name={`${account.accountId[0]}`}
+                name={`${account[0]}`}
                 mr="12px"
               />
               <Link
-                href={`https://explorer.testnet.near.org/accounts/${account.accountId}`}
+                href={`https://explorer.testnet.near.org/accounts/${account}`}
                 target="_blank"
                 color="#000"
                 style={{ textDecoration: "none" }}
               >
-                {account.accountId}
+                {account}
               </Link>
             </MenuItem>
             <MenuItem minH="40px" _hover={{ bg: "teal.200" }}>
