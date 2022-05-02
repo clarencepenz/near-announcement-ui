@@ -7,7 +7,7 @@ import DateUtil from "../../utils/DateUtil";
 export function Card({ item, account, likeFunc, dislikeFunc, deleteFunc }) {
   return (
     <Flex
-      width={{ base: "350px", md: "450px" }}
+      width={{ base: "340px", md: "450px" }}
       borderWidth="1px"
       borderRadius="lg"
       overflow="hidden"
@@ -25,7 +25,7 @@ export function Card({ item, account, likeFunc, dislikeFunc, deleteFunc }) {
             mr="auto"
           >
             <Badge
-              textTransform="capitalize"
+              textTransform="lowercase"
               borderRadius="full"
               px="2"
               colorScheme="teal"
