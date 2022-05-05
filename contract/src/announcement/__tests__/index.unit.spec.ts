@@ -1,7 +1,7 @@
 import { VMContext } from "near-mock-vm";
-import { u128, logging } from "near-sdk-core";
+import { u128 } from "near-sdk-core";
 import { TxFee } from "../../utils";
-import { deleteAnnouncement, getAnnouncement, createAnnouncement, like, dislike } from "../assembly";
+import {  getAnnouncement, createAnnouncement, like, dislike } from "../assembly";
 import { announcementIds } from "../assembly/model";
 
 const announcer = "ogenienis.testnet";
@@ -58,31 +58,6 @@ describe("View a single Announcement", () => {
   })
 
 })
-
-
-describe("Delete a single Announcement", () => {
-  beforeEach(() => {
-    VMContext.setAttached_deposit(TxFee);
-    VMContext.setSigner_account_id(announcer);
-
-    const text = "MilkyWay Galaxy arrives today";
-    createAnnouncement(text);
-  });
-
-  it("Deletes a single announcement and returns a response", () => {
-    const response = deleteAnnouncement(announcementIds[0]);
-    expect(response).toBe('⚠️ ' + announcementIds[0] +  " Announcement Deleted");
-  });
-
-  it("Smart contract panics when there's no Announcement with such ID", () => {
-    function deleteUnknownItem(): void {
-      deleteAnnouncement("ANC-0000001");
-    }
-    expect(deleteUnknownItem).toThrow("This Announcement doesn't exist")
-  })
-
-})
-
 
 describe("To like on a single Announcement", () => {
   beforeEach(() => {

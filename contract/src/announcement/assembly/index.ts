@@ -45,6 +45,12 @@ export function deleteAnnouncement(uid: announcementID): string {
   );
   announcement.delete(uid);
 
+  for(let x = 0; x < announcementIds.length; x++){
+    if(announcementIds[x] == uid){
+      announcementIds.swap_remove(x)
+    }
+ }
+
   return "⚠️ " + uid + " Announcement Deleted";
 }
 

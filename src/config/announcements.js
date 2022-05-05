@@ -15,11 +15,7 @@ export function dislikeAnc(uid) {
 }
 
 export function deleteAnc(uid) {
-  return window.contract.deleteAnnouncement(
-    uid,
-    GAS,
-    parseNearAmount(0.0001 + "")
-  );
+  return window.contract.deleteAnnouncement(uid);
 }
 
 export function createAnnouncement(data) {
