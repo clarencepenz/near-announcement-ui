@@ -1,5 +1,5 @@
 const CONTRACT_NAME =
-  process.env.CONTRACT_NAME || "dev-1651428809093-16954528884263"; // put here a smart contracts' name
+  process.env.CONTRACT_NAME || "dev-1651756408769-42224216917974"; // put here a smart contracts' name
 
 function environment(env) {
   switch (env) {
